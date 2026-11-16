@@ -4,7 +4,7 @@
 - Ask the owner for explicit approval before production steps or changes, including code, textures, configuration, builds, commits, pushes, and releases.
 - Research and read-only analysis are allowed when implied by the conversation.
 - Approval covers the concrete batch described to the owner, including routine fixes necessary to complete and validate that batch. Ask again before expanding its scope.
-- Current approved batch (2026-11-15): initial project, 13 appearances (original Andesite plus 12 designed variants), casing-based creation, persistence and multiplayer synchronization, alpha build, checks, player test checklist, and commit/push to a development branch.
+- Current approved batch (2026-11-16): replace all 12 custom skins with exact-coordinate recolours of the original Railways texture, compare against Andesite, adapt dark-material eye colours, update asset credits/licenses, validate and build alpha 2, and commit/push to the existing development branch.
 - Work only in this repository. Do not change WiM, other mods, or live game/server installations.
 - No public release, deployment, or merge to main without approval.
 
@@ -15,6 +15,7 @@ Do not silently update these versions.
 ## Design
 Use the existing Steam 'n' Rails conductor entity, model, animations, jobs and cap colours. Variants are cosmetic.
 Initial lineup: Andesite, Brass, Copper, Train, Shadow, Radiant, Zinc, Blaze, Sturdy, Industrial, Overburden, Blackstone, Platinum.
+Preserve the original skin's pixel coordinates, eye geometry, panel boundaries and shading. Use deterministic palette substitution; do not redraw or generate replacement anatomy. Derived skins and previews retain upstream LGPL licensing; original addon code remains MIT.
 Optional casing providers must not become mandatory dependencies. No automatic casing discovery or generated-material support in v1.
 Preserve upstream named special skins, healing and drops. No new casing recipes.
 

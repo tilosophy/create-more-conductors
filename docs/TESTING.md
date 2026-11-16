@@ -1,12 +1,16 @@
-# First-alpha player checklist
+# Alpha 2 player checklist
 
-Build: **0.1.0-alpha.1**. Target: Minecraft 1.21.1, NeoForge 21.1.262, Create 6.0.10, Steam 'n' Rails community port 0.3.0-beta.2+neoforge-mc1.21.1.
+Build: **0.1.0-alpha.2**. Target: Minecraft 1.21.1, NeoForge 21.1.262, Create 6.0.10, Steam 'n' Rails community port 0.3.0-beta.2+neoforge-mc1.21.1.
 
 ## Set up
 
 1. Use a separate test instance or a copy of your WiM world. Keep an untouched copy before opening it with the alpha.
 2. Put the runtime JAR in `mods` on every test client and the test server. Do not install the sources JAR. Keep your existing casing providers and Shadow/Radiant recipe datapack.
 3. Fully restart the game and server. No new world, new chunks or datapack reload is needed for the addon itself.
+
+## Alpha 2 visual focus
+
+Replace the alpha-1 runtime JAR with alpha 2; do not keep both installed. Existing variant conductors should pick up the new skins automatically after restarting. Compare each with Andesite: eye spacing, eye height, arm divisions, torso borders and leg panels should match. Shadow and Sturdy now use muted grey-violet eyes; check readability in daylight and in your shader-lit interiors. Other variants retain the original dark eyes.
 
 ## Test in this order
 

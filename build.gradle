@@ -71,4 +71,12 @@ tasks.withType(Jar).configureEach {
     reproducibleFileOrder = true
     from('LICENSE')
     from('THIRD_PARTY_NOTICES.md')
+    from('licenses') { into 'licenses' }
+}
+// Keep the editable texture source and palette procedure with the development sources artifact.
+tasks.named('sourcesJar', Jar) {
+    from('art/upstream') { into 'texture-source/upstream' }
+    from('art/palettes.properties') { into 'texture-source' }
+    from('tools/BakeTextures.java') { into 'texture-source/tools' }
+    from('art/README.md') { into 'texture-source' }
 }

@@ -1,6 +1,8 @@
-# Alpha 1 validation
+# Alpha 2 validation
 
-Date: 2026-11-15. Build: `0.1.0-alpha.1`.
+Date: 2026-11-16. Build: `0.1.0-alpha.2`.
+
+Scope: replacement skins derived from the exact upstream texture, palette tools, comparison previews, license notices and version metadata. Gameplay Java source is unchanged from alpha 1.
 
 ## Completed
 
@@ -8,7 +10,7 @@ Date: 2026-11-15. Build: `0.1.0-alpha.1`.
 | --- | --- |
 | Java compilation and JAR build | Passed on Java 21 / Gradle 8.14.3 |
 | Exact dependency environment | NeoForge 21.1.262; Create 6.0.10; Railways 0.3.0-beta.2+neoforge-mc1.21.1 |
-| Baseline dedicated GameTest server | All 7 required tests passed; only required mods and their bundled libraries installed |
+| Baseline dedicated GameTest server | Alpha 1 passed all 7 tests; not repeated for this texture-only update |
 | Optional-provider GameTest server | All 7 required tests passed; actual creation checked for 11 installed casing variants |
 | Save/load | All 13 variant IDs preserved; cap colour retained |
 | Additional spawn-data serialization | All 13 variant IDs round-tripped through RegistryFriendlyByteBuf |
@@ -17,8 +19,12 @@ Date: 2026-11-15. Build: `0.1.0-alpha.1`.
 | Legacy/unknown data | Andesite fallback passed |
 | Unsupported stone, air and chest | No new conductor, no cap or block consumed |
 | Cancelled new-variant spawn | Casing and cap retained |
-| Runtime archive | 12 PNGs at 64x64, correct metadata and Java 21 bytecode; no test mod, copied Railways assets or dependency JARs |
-| Static body preview | Inspected all 12 new skins on the conductor cuboid UV layout |
+| Original source | Source PNG matches the conductor texture in the exact installed Railways release JAR byte-for-byte |
+| Palette/layout verification | All 4096 pixels of each of 12 skins verified against the pinned source and palette; transparency preserved |
+| Eyes | Original eight eye coordinates and three-tone relief preserved; original eye colours on ten skins, muted lighter palette on Shadow/Sturdy |
+| Runtime archive | 12 current PNGs at 64x64, correct metadata and Java 21 bytecode; no test mod, upstream-namespace override or dependency JARs |
+| Licensing/source | Runtime and sources JARs contain LGPL/GPL texts and attribution; sources JAR includes original PNG, palettes and conversion tool |
+| Static body preview | Inspected each of 12 recolours beside original Andesite using the same model/UV renderer |
 
 Optional-provider test versions: Create Encased 1.10.0-fix1, Blazing Hot 0.7.4, Dreams n' Desires 2.3a-BETA. The 11 creation checks cover Andesite, Brass, Copper, Train, Shadow, Radiant, Zinc, Blaze, Sturdy, Industrial and Overburden.
 
@@ -36,8 +42,8 @@ Use [TESTING.md](TESTING.md) to finish those checks before approving live use.
 
 ## Runtime artifact
 
-`create-more-conductors-0.1.0-alpha.1.jar`
+`create-more-conductors-0.1.0-alpha.2.jar`
 
-SHA-256: `d7af1c42d596fc1adf60bee294cff23408577c40e8711d5a6847df5d872920b1`
+SHA-256: recorded in [alpha2-SHA256SUMS.txt](alpha2-SHA256SUMS.txt).
 
 Build outputs are reproducible archives with fixed entry timestamps. Only the runtime JAR is installed in Minecraft; the sources JAR is for development.

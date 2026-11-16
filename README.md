@@ -1,10 +1,10 @@
 # Create: More Conductors
 
-Designed casing appearances for Steam 'n' Rails conductors. Apply an existing conductor's cap to a supported casing to create a conductor made from that material.
+Casing appearances recoloured from the original conductor texture for Steam 'n' Rails conductors. Apply an existing conductor's cap to a supported casing to create a conductor made from that material.
 
 **Development alpha — not a public release.** Install on both the server and every client. Test on a separate instance or a copy of your world first.
 
-![The twelve new body skins](art/conductor-lineup.png)
+![Each recolour beside original Andesite](art/conductor-comparison.png)
 
 This is a static UV/model preview. In game, Steam 'n' Rails supplies the hats, model, animations and behaviour. Original Andesite conductors retain their original appearance.
 
@@ -51,9 +51,9 @@ Optional providers are not required. Each integration only responds to its liste
 
 ## Installation and player checks
 
-Put the runtime `create-more-conductors-0.1.0-alpha.1.jar` in the test server's and every test client's `mods` folder, alongside the versions above. Restart both. The `-sources.jar` is for development and is not installed in the game.
+Put the runtime `create-more-conductors-0.1.0-alpha.2.jar` in the test server's and every test client's `mods` folder, alongside the versions above. Restart both. The `-sources.jar` is for development and is not installed in the game.
 
-No new world or new chunks are required. Follow [the first-alpha test checklist](docs/TESTING.md). Do not deploy to the live SMP until the in-game checks are approved.
+No new world or new chunks are required. Follow [the alpha-2 test checklist](docs/TESTING.md). Do not deploy to the live SMP until the in-game checks are approved.
 
 ## Building
 
@@ -74,4 +74,4 @@ java tools/BakeTextures.java
 java tools/PreviewConductors.java
 ```
 
-See [art provenance](art/README.md) and [third-party notices](THIRD_PARTY_NOTICES.md). This addon uses MIT; installed dependencies retain their own licenses.
+See [art provenance](art/README.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Original addon code uses MIT; upstream-derived skins and previews use LGPL-3.0. Installed dependencies retain their own licenses.
