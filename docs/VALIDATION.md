@@ -13,6 +13,7 @@ Date: 2026-11-17. Candidate: `0.1.0-beta.1`.
 | Accepted gameplay and skins | Java sources and body textures unchanged from alpha-2 commit `445e507` |
 | Runtime archive | Correct beta metadata, icon, 12 skins, Java 21 bytecode and licences; no bundled dependencies or test mod |
 | Sources archive | Editable original texture, palettes, conversion tool and licence texts present |
+| Owner beta check | Owner reports in-game mod-list icon displays correctly and screenshots are complete (2026-11-17) |
 | Documentation | Current local links checked; historical validation moved to `docs/history` |
 
 Environment: Minecraft 1.21.1, NeoForge 21.1.262, Create 6.0.10, Steam 'n' Rails community port 0.3.0-beta.2+neoforge-mc1.21.1. Optional-provider run: Create Encased 1.10.0-fix1, Blazing Hot 0.7.4, Dreams n' Desires 2.3a-BETA.
@@ -21,12 +22,12 @@ The seven GameTests cover casing creation/consumption, all cap colours and creat
 
 Both runs completed successfully. Logs also contain dependency resource errors, including Railways optional track loot tables and Create Encased slicer loot tables referencing absent items, plus development warnings. These are not warning-free logs. Full logs accompany the review packet.
 
-## Remaining manual checks and limits
+## Manual verification and limits
 
-- Owner accepted alpha-2 gameplay and appearance. A final beta client startup/icon check and screenshots remain with the owner; see [checklist](TESTING.md).
+- Owner accepted alpha-2 gameplay and appearance and now reports the beta icon works in game and screenshots are complete. Screenshots remain with the owner for the CurseForge listing. Individual checklist scenarios beyond that report are not separately claimed; see [checklist](TESTING.md).
 - Real two-player testing is deferred. Serialization tests do not verify the full multiplayer tracking/render path.
 - Blackstone and Platinum creation with their complete optional dependency stacks has not been tested; generic persistence/payload tests include their IDs.
 - No full WiM compatibility or performance measurement is claimed.
-- Publication, merge to `main`, and live deployment require separate owner approval.
+- Owner approved merging the beta into `main` on 2026-11-17. A published GitHub release and live deployment remain separate actions.
 
 Artifact hashes: [SHA256SUMS.txt](SHA256SUMS.txt). Historical alpha-2 evidence: [history](history/ALPHA_2_VALIDATION.md).

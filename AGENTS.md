@@ -5,6 +5,7 @@
 - Research and read-only analysis are allowed when implied by the conversation.
 - Approval covers the concrete batch described to the owner, including routine fixes necessary to complete and validate that batch. Ask again before expanding its scope.
 - Current approved batch (2026-11-17): prepare 0.1.0-beta.1 with recovered branding, tidy repository documentation, build runtime and source JARs, run baseline and optional-provider GameTests, verify archives and checksums, assemble the review packet, and commit/push to develop/first-alpha. Preserve accepted gameplay, skins and dependency versions. Owner has completed the CurseForge copy and supplies screenshots. Multiplayer testing is deferred; merging and publication require separate approval.
+- Launch approval (2026-11-17): owner confirms the beta mod-list icon works in game and screenshots are complete; record this report and merge the verified beta into main with launch-ready documentation. Publishing a GitHub release and live deployment are not included in this merge approval.
 - Work only in this repository. Do not change WiM, other mods, or live game/server installations.
 - No public release, deployment, or merge to main without approval.
 
