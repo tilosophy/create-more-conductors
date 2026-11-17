@@ -4,7 +4,7 @@
 - Ask the owner for explicit approval before production steps or changes, including code, textures, configuration, builds, commits, pushes, and releases.
 - Research and read-only analysis are allowed when implied by the conversation.
 - Approval covers the concrete batch described to the owner, including routine fixes necessary to complete and validate that batch. Ask again before expanding its scope.
-- Current approved batch (2026-11-16): replace all 12 custom skins with exact-coordinate recolours of the original Railways texture, compare against Andesite, adapt dark-material eye colours, update asset credits/licenses, validate and build alpha 2, and commit/push to the existing development branch.
+- Current approved batch (2026-11-17): prepare 0.1.0-beta.1 with recovered branding, tidy repository documentation, build runtime and source JARs, run baseline and optional-provider GameTests, verify archives and checksums, assemble the review packet, and commit/push to develop/first-alpha. Preserve accepted gameplay, skins and dependency versions. Owner has completed the CurseForge copy and supplies screenshots. Multiplayer testing is deferred; merging and publication require separate approval.
 - Work only in this repository. Do not change WiM, other mods, or live game/server installations.
 - No public release, deployment, or merge to main without approval.
 
@@ -21,4 +21,4 @@ Preserve upstream named special skins, healing and drops. No new casing recipes.
 
 ## Verification
 Run build and focused GameTests. Check actual JAR contents. Distinguish automated checks from manual client/multiplayer checks; never claim unperformed tests passed.
-Provide an alpha JAR and a clear player test checklist. Document limitations and third-party provenance.
+Provide a beta JAR and a clear player test checklist. Document limitations and third-party provenance.

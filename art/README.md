@@ -1,4 +1,4 @@
-# Conductor textures — alpha 2
+# Conductor textures
 
 The twelve body skins now use exact-coordinate palette substitution of Steam 'n' Rails' original 64x64 conductor texture. There is no newly drawn anatomy, eye rim, frame border or material pattern.
 
@@ -18,7 +18,7 @@ Verification checks every output pixel against the pinned source and palette. `-
 
 ## Eyes
 
-Ten skins retain the original charcoal eye pixels exactly. Shadow and Sturdy use a subdued grey-violet midpoint (`#65616e`) with the original three-tone relief and exact spacing. These eyes use ordinary body rendering: no emissive layer or glow. The lighter option makes the eyes legible without brightening the whole dark casing. Their in-game appearance under the pack's shaders still needs review.
+Ten skins retain the original charcoal eye pixels exactly. Shadow and Sturdy use a subdued grey-violet midpoint (`#65616e`) with the original three-tone relief and exact spacing. These eyes use ordinary body rendering: no emissive layer or glow. The lighter option makes the eyes legible without brightening the whole dark casing. The owner accepted the corrected alpha-2 appearance in game. Beta 1 preserves these skins.
 
 ## Previews and licensing
 

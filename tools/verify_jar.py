@@ -17,13 +17,15 @@ with zipfile.ZipFile(jar) as z:
         assert struct.unpack(">II", b[16:24]) == (64, 64), name
         assert b == (root / f"src/main/resources/assets/moreconductors/textures/entity/conductor/{name}.png").read_bytes(), "Stale skin in JAR"
     textures = [n for n in names if n.endswith(".png")]
-    assert len(textures) == 12, textures
+    assert len(textures) == 13 and "icon.png" in textures, textures
+    assert z.read("icon.png") == (root / "src/main/resources/icon.png").read_bytes()
     assert not any(n.startswith("assets/railways/") for n in names), "Must not override the upstream resource namespace"
     assert not any("GameTests" in n or n.startswith("data/moreconductors/") for n in names), "Test resources leaked"
     assert not any(n.endswith(".jar") for n in names), "Unexpected bundled dependency"
     meta = z.read("META-INF/neoforge.mods.toml").decode()
     assert '${version}' not in meta and f'version="{version}"' in meta
     assert "LGPL-3.0" in meta
+    assert 'logoFile="icon.png"' in meta
     for n in ["LICENSE", "THIRD_PARTY_NOTICES.md", "moreconductors.mixins.json", "licenses/LGPL-3.0.txt", "licenses/GPL-3.0.txt"]:
         assert z.read(n)
     for n in names:

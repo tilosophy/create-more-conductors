@@ -29,3 +29,7 @@ The unused historical art/material-atlas.png from alpha 1 remains original AI-as
 
 Gradle wrapper: Gradle project, Apache-2.0 (https://github.com/gradle/gradle).
 Initial wrapper scripts and project conventions adapted from NeoForgeMDKs/MDK-1.21.1-ModDevGradle (CC0-1.0).
+
+## Promotional artwork
+
+The icon at src/main/resources/icon.png and artwork under art/listing/ are AI-assisted promotional illustrations prepared for tilosophy. They are not in-game screenshots or replacements for the LGPL conductor texture atlases.

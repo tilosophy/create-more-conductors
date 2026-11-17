@@ -2,15 +2,17 @@
 
 Casing appearances recoloured from the original conductor texture for Steam 'n' Rails conductors. Apply an existing conductor's cap to a supported casing to create a conductor made from that material.
 
-**Development alpha — not a public release.** Install on both the server and every client. Test on a separate instance or a copy of your world first.
+**Beta: 0.1.0-beta.1.** Install on both the server and every client. Test on a separate instance or a copy of your world first.
 
-![Each recolour beside original Andesite](art/conductor-comparison.png)
+![Create: More Conductors](art/listing/banner.png)
 
-This is a static UV/model preview. In game, Steam 'n' Rails supplies the hats, model, animations and behaviour. Original Andesite conductors retain their original appearance.
+The banner is promotional artwork. In game, Steam 'n' Rails supplies the hats, model, animations and behaviour. Original Andesite conductors retain their original appearance.
+
+See the [player guide](docs/PLAYER_GUIDE.md), [release notes](docs/RELEASE_NOTES.md), and [verification status](docs/VALIDATION.md).
 
 ## Supported environment
 
-| Component | First alpha target |
+| Component | Target version |
 | --- | --- |
 | Minecraft | 1.21.1 |
 | Java | 21 |
@@ -18,7 +20,7 @@ This is a static UV/model preview. In game, Steam 'n' Rails supplies the hats, m
 | Create | 6.0.10 |
 | Steam 'n' Rails community port | 0.3.0-beta.2+neoforge-mc1.21.1 |
 
-The alpha intentionally restricts its Create and Railways versions. Other versions have not been checked. Original upstream Steam 'n' Rails builds for other Minecraft versions are not substitutes.
+The addon intentionally restricts its Create and Railways versions. Other versions have not been checked. Original upstream Steam 'n' Rails builds for other Minecraft versions are not substitutes.
 
 ## First lineup
 
@@ -51,9 +53,9 @@ Optional providers are not required. Each integration only responds to its liste
 
 ## Installation and player checks
 
-Put the runtime `create-more-conductors-0.1.0-alpha.2.jar` in the test server's and every test client's `mods` folder, alongside the versions above. Restart both. The `-sources.jar` is for development and is not installed in the game.
+Put the runtime `create-more-conductors-0.1.0-beta.1.jar` in the test server's and every test client's `mods` folder, alongside the versions above. Restart both. The `-sources.jar` is for development and is not installed in the game.
 
-No new world or new chunks are required. Follow [the alpha-2 test checklist](docs/TESTING.md). Do not deploy to the live SMP until the in-game checks are approved.
+No new world or new chunks are required. Follow [the beta checklist](docs/TESTING.md). The owner accepted alpha-2 gameplay and appearance; real multiplayer testing is deferred.
 
 ## Building
 
@@ -63,6 +65,8 @@ With a Java 21 JDK installed, run from this repository:
 ./gradlew build
 ./gradlew runGameTestServer
 ./gradlew runGameTestServer -PwithCasingTestMods
+python3 tools/verify_jar.py
+java tools/BakeTextures.java --verify
 ```
 
 On Windows use `gradlew.bat` instead of `./gradlew`. Runtime and source JARs appear in `build/libs/`. GameTests are a separate development mod and are never packaged in the runtime JAR. A successful `build` alone does not mean the GameTests have run. The third command adds Encased, Blazing Hot and Dreams n' Desires to the test run only.

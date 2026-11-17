@@ -1,49 +1,32 @@
-# Alpha 2 validation
+# Beta 1 validation
 
-Date: 2026-11-16. Build: `0.1.0-alpha.2`.
+Date: 2026-11-17. Candidate: `0.1.0-beta.1`.
 
-Scope: replacement skins derived from the exact upstream texture, palette tools, comparison previews, license notices and version metadata. Gameplay Java source is unchanged from alpha 1.
-
-## Completed
+## Completed on this candidate
 
 | Check | Result |
 | --- | --- |
-| Java compilation and JAR build | Passed on Java 21 / Gradle 8.14.3 |
-| Exact dependency environment | NeoForge 21.1.262; Create 6.0.10; Railways 0.3.0-beta.2+neoforge-mc1.21.1 |
-| Baseline dedicated GameTest server | Alpha 1 passed all 7 tests; not repeated for this texture-only update |
-| Optional-provider GameTest server | All 7 required tests passed; actual creation checked for 11 installed casing variants |
-| Save/load | All 13 variant IDs preserved; cap colour retained |
-| Additional spawn-data serialization | All 13 variant IDs round-tripped through RegistryFriendlyByteBuf |
-| Cap colours and creative consumption | All 16 colours checked with Brass; creative cap retained |
-| Survival creation | Exactly one conductor, casing removed, cap consumed, cap equipped |
-| Legacy/unknown data | Andesite fallback passed |
-| Unsupported stone, air and chest | No new conductor, no cap or block consumed |
-| Cancelled new-variant spawn | Casing and cap retained |
-| Original source | Source PNG matches the conductor texture in the exact installed Railways release JAR byte-for-byte |
-| Palette/layout verification | All 4096 pixels of each of 12 skins verified against the pinned source and palette; transparency preserved |
-| Eyes | Original eight eye coordinates and three-tone relief preserved; original eye colours on ten skins, muted lighter palette on Shadow/Sturdy |
-| Runtime archive | 12 current PNGs at 64x64, correct metadata and Java 21 bytecode; no test mod, upstream-namespace override or dependency JARs |
-| Licensing/source | Runtime and sources JARs contain LGPL/GPL texts and attribution; sources JAR includes original PNG, palettes and conversion tool |
-| Static body preview | Inspected each of 12 recolours beside original Andesite using the same model/UV renderer |
+| Fresh runtime and sources build | Passed; Java 21, Gradle 8.14.3 |
+| Baseline dedicated GameTests | All 7 required tests passed; creation from 6 core casings |
+| Optional-provider dedicated GameTests | All 7 required tests passed; creation from 11 installed casings |
+| Texture verification | All 4096 coordinates on each of 12 skins match the pinned source/palette procedure |
+| Accepted gameplay and skins | Java sources and body textures unchanged from alpha-2 commit `445e507` |
+| Runtime archive | Correct beta metadata, icon, 12 skins, Java 21 bytecode and licences; no bundled dependencies or test mod |
+| Sources archive | Editable original texture, palettes, conversion tool and licence texts present |
+| Documentation | Current local links checked; historical validation moved to `docs/history` |
 
-Optional-provider test versions: Create Encased 1.10.0-fix1, Blazing Hot 0.7.4, Dreams n' Desires 2.3a-BETA. The 11 creation checks cover Andesite, Brass, Copper, Train, Shadow, Radiant, Zinc, Blaze, Sturdy, Industrial and Overburden.
+Environment: Minecraft 1.21.1, NeoForge 21.1.262, Create 6.0.10, Steam 'n' Rails community port 0.3.0-beta.2+neoforge-mc1.21.1. Optional-provider run: Create Encased 1.10.0-fix1, Blazing Hot 0.7.4, Dreams n' Desires 2.3a-BETA.
 
-The test-server logs contain Railways optional-track loot-table errors for absent companion mods. Those resource identifiers belong to the installed Railways dependency; both test servers finished successfully. This is not a claim of a warning-free log.
+The seven GameTests cover casing creation/consumption, all cap colours and creative cap retention, variant save/load, additional spawn-data serialization, legacy/unknown fallback, unsupported blocks, and cancelled spawning. Save/load and payload checks include all 13 variant IDs. Actual creation checks include Andesite, Brass, Copper, Train, Shadow, Radiant, Zinc, Blaze, Sturdy, Industrial and Overburden.
 
-## Not yet verified
+Both runs completed successfully. Logs also contain dependency resource errors, including Railways optional track loot tables and Create Encased slicer loot tables referencing absent items, plus development warnings. These are not warning-free logs. Full logs accompany the review packet.
 
-- Actual client rendering, hat layering, animations, shaders and resource-pack interactions. The preview is a separate renderer, not an in-game screenshot.
-- Two real players, tracking-range changes, reconnects and restart persistence in WiM. The packet test verifies data serialization, not the whole multiplayer transport/render path.
-- Blackstone and Platinum creation with Gadgets & Gizmos and Create Propulsion Simulated plus their physics dependencies installed. Their registry IDs and resources were inspected in the pack's mod JARs; their variant saving and packet data passed the generic tests.
-- Normal conductor tasks and named special skins during real play.
-- Full WiM compatibility and performance. No measured performance claim is made.
+## Remaining manual checks and limits
 
-Use [TESTING.md](TESTING.md) to finish those checks before approving live use.
+- Owner accepted alpha-2 gameplay and appearance. A final beta client startup/icon check and screenshots remain with the owner; see [checklist](TESTING.md).
+- Real two-player testing is deferred. Serialization tests do not verify the full multiplayer tracking/render path.
+- Blackstone and Platinum creation with their complete optional dependency stacks has not been tested; generic persistence/payload tests include their IDs.
+- No full WiM compatibility or performance measurement is claimed.
+- Publication, merge to `main`, and live deployment require separate owner approval.
 
-## Runtime artifact
-
-`create-more-conductors-0.1.0-alpha.2.jar`
-
-SHA-256: recorded in [alpha2-SHA256SUMS.txt](alpha2-SHA256SUMS.txt).
-
-Build outputs are reproducible archives with fixed entry timestamps. Only the runtime JAR is installed in Minecraft; the sources JAR is for development.
+Artifact hashes: [SHA256SUMS.txt](SHA256SUMS.txt). Historical alpha-2 evidence: [history](history/ALPHA_2_VALIDATION.md).

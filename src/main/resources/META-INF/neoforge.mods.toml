@@ -8,6 +8,8 @@ modId="moreconductors"
 version="${version}"
 displayName="Create: More Conductors"
 authors="tilosophy"
+logoFile="icon.png"
+displayURL="https://github.com/tilosophy/create-more-conductors"
 description='''Designed casing variants for Steam 'n' Rails conductors. Apply a conductor's cap to a supported casing to bring it to life.'''
 
 [[mixins]]
