@@ -1,0 +1,44 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT (addon code); LGPL-3.0 (derived conductor textures)"
+issueTrackerURL="https://github.com/tilosophy/create-more-conductors/issues"
+
+[[mods]]
+modId="moreconductors"
+version="${version}"
+displayName="Create: More Conductors"
+authors="tilosophy"
+logoFile="icon.png"
+displayURL="https://github.com/tilosophy/create-more-conductors"
+description='''Designed casing variants for Steam 'n' Rails conductors. Apply a conductor's cap to a supported casing to bring it to life.'''
+
+[[mixins]]
+config="moreconductors.mixins.json"
+
+[[dependencies.moreconductors]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.moreconductors]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.262,21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.moreconductors]]
+modId="create"
+type="required"
+versionRange="[6.0.10,6.0.11)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.moreconductors]]
+modId="railways"
+type="required"
+versionRange="[0.3.0-beta.2+neoforge-mc1.21.1]"
+ordering="AFTER"
+side="BOTH"

@@ -1,0 +1,2 @@
+d2723e5ea1fe095ce98bc859077f6a17807a037bd55998cdb0b32bd570a1dd76  create-more-conductors-0.1.0-beta.1-sources.jar
+ee4d80437a5482e2d650fccbb04e53ff2304ce180f051551651bac3b4bd889cd  create-more-conductors-0.1.0-beta.1.jar

@@ -1,0 +1,82 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+group = 'io.github.tilosophy'
+version = mod_version
+base.archivesName = 'create-more-conductors'
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+repositories {
+    maven { url = 'https://api.modrinth.com/maven' }
+    maven { url = 'https://mvn.devos.one/snapshots' }
+}
+dependencies {
+    // Immutable Modrinth release IDs; full release JARs carry their own bundled runtime dependencies.
+    implementation('maven.modrinth:create:UjX6dr61') { transitive = false }
+    implementation('maven.modrinth:create-steam-n-rails-1.21.1:czVeSmZo') { transitive = false }
+    compileOnly('com.tterrag.registrate:Registrate:MC1.21-1.3.0+67') { transitive = false }
+}
+
+sourceSets {
+    gameTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+configurations {
+    gameTestImplementation.extendsFrom implementation
+    gameTestCompileOnly.extendsFrom compileOnly
+    gameTestRuntimeOnly.extendsFrom runtimeOnly
+}
+// Opt-in integration test dependencies only; never required or bundled by the addon.
+if (providers.gradleProperty('withCasingTestMods').isPresent()) {
+    dependencies {
+        gameTestRuntimeOnly('maven.modrinth:create-encased:pld6Eng9') { transitive = false }
+        gameTestRuntimeOnly('maven.modrinth:create-blazing-hot:V9HyDSFg') { transitive = false }
+        gameTestRuntimeOnly('maven.modrinth:create-dreams-and-desires:bqMxf6Ua') { transitive = false }
+    }
+}
+neoForge {
+    version = neo_version
+    addModdingDependenciesTo(sourceSets.gameTest)
+    runs {
+        client { client() }
+        server { server(); programArgument '--nogui' }
+        gameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gameTest
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'moreconductors'
+        }
+        configureEach {
+            systemProperty 'mixin.debug.export', 'true'
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+    mods {
+        moreconductors { sourceSet sourceSets.main }
+        moreconductors_tests { sourceSet sourceSets.gameTest }
+    }
+}
+tasks.named('processResources', ProcessResources) {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/neoforge.mods.toml') { expand(version: project.version) }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('LICENSE')
+    from('THIRD_PARTY_NOTICES.md')
+    from('licenses') { into 'licenses' }
+}
+// Keep the editable texture source and palette procedure with the development sources artifact.
+tasks.named('sourcesJar', Jar) {
+    from('art/upstream') { into 'texture-source/upstream' }
+    from('art/palettes.properties') { into 'texture-source' }
+    from('tools/BakeTextures.java') { into 'texture-source/tools' }
+    from('art/README.md') { into 'texture-source' }
+}
